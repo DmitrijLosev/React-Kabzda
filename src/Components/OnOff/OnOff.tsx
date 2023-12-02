@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import "./OnOff.css"
 
-export const OnOff: React.FC<{ onChange: (on: boolean) => void }> = ({onChange}) => {
-    const [on, setOn] = useState<boolean>(false)
+export const OnOff: React.FC<{ onChange: (on: boolean) => void, defaultOn?:boolean }> = ({onChange, defaultOn}) => {
+    const [on, setOn] = useState<boolean>(defaultOn!)
     const onButtonClicked = () => {
         setOn(true)
         onChange(true)
