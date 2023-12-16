@@ -1,27 +1,32 @@
-import React, {useState} from "react";
+import React, {useReducer} from "react";
+import {reducer, TOGGLE_CONSTANT} from "./reducer";
 
-export function Accordion(props: { titleValue: string }) {
 
-    const [collapsed, setCollapsed] = useState(false)
-    const setNewCollapsed = () => {
-        setCollapsed(!collapsed)
+export const Accordion = React.memo(function Accordion(props: { titleValue: string }) {
+
+        const [state, dispatch] = useReducer(reducer, {toggleCollapsed: false})
+        const setNewCollapsed = () => {
+            dispatch({type: TOGGLE_CONSTANT})
+        }
+        return <>
+            <AccordionTitle titleValue={props.titleValue} setNewCollapsed={setNewCollapsed}/>
+            {state.toggleCollapsed && <AccordionBody/>}
+        </>
     }
-    return <>
-        <AccordionTitle titleValue={props.titleValue} setNewCollapsed={setNewCollapsed}/>
-        {collapsed && <AccordionBody/>}
-    </>
-}
+)
 
-function AccordionTitle(props: { titleValue: string,setNewCollapsed:()=>void}) {
+const AccordionTitle = React.memo(function AccordionTitle(props: { titleValue: string, setNewCollapsed: () => void }) {
 
-    return <h3 onClick={props.setNewCollapsed}>{props.titleValue}</h3>
-}
+        return <h3 onClick={props.setNewCollapsed}>{props.titleValue}</h3>
+    }
+)
 
-function AccordionBody() {
+const AccordionBody = React.memo(function AccordionBody() {
 
-    return <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-    </ul>
-}
+        return <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    }
+)

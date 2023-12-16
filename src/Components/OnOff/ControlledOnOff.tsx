@@ -2,7 +2,7 @@ import React from "react";
 import "./OnOff.css"
 
 type ControlledOnOffPropsType={on:boolean, setOn:()=>void}
-export const ControlledOnOff: React.FC<ControlledOnOffPropsType> = ({on,setOn}) => {
+export const ControlledOnOff: React.FC<ControlledOnOffPropsType> = React.memo(({on,setOn}) => {
 
     return (
         <div className={"wrapper"}>
@@ -11,4 +11,5 @@ export const ControlledOnOff: React.FC<ControlledOnOffPropsType> = ({on,setOn}) 
             <div className={`circle ${on && "activeGreen"}`}></div>
         </div>
     );
-};
+}
+)

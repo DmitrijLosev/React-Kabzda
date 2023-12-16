@@ -1,0 +1,63 @@
+.selectWrapper * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.selectWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+
+}
+
+.select {
+    display: inline-block;
+    border: 1px solid black;
+    position: relative;
+}
+
+.textValue {
+    display: inline-block;
+    margin: 5px 30px 5px 5px;
+    min-width: 30px;
+    min-height: 16px;
+}
+
+.textValue::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    bottom: 12px;
+    right: 12px;
+    background-color: grey;
+    rotate: 45deg;
+}
+
+.textValue::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    bottom: 12px;
+    right: 6px;
+    background-color: grey;
+    rotate: 315deg;
+}
+
+.selectList {
+    list-style: none;
+    border: 1px solid grey;
+    box-shadow: 5px 5px 5px lightslategrey;
+}
+
+.listItems {
+cursor: pointer;
+    padding: 5px 25px 5px 5px;
+}
+
+
+.activeHover {
+    background-color: lightblue;
+}

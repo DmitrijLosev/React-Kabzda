@@ -1,10 +1,11 @@
 import {action} from "@storybook/addon-actions"
 
-import {ControlledAccordion} from "./ControllledAccordion";
+import { Select} from "./Select";
 import React, {useState} from "react";
 
 export default {
-    component: ControlledAccordion,
+    title:"Select",
+    component: Select,
 };
 
 
@@ -18,13 +19,26 @@ export const FirstStory: Story = {
     },
 };*/
 
-const onChangeHandler = action("onChange Accordion")
-const callback = action("some item was clicked")
-export const CollapsedAccordion = () => {
-    return <ControlledAccordion titleValue={"CollapsedAccordion"} collapsed={true} changeCollapsed={
-        onChangeHandler} items={[]} onClick={() => {
-    }}/>
+/*const onChangeHandler = action("onChange Accordion")
+const callback = action("some item was clicked")*/
+export const SimpleSelect = () => {
+    const [selectValue, setSelectValue] = useState("")
+    return <Select value={selectValue} items={
+        [{title: "None", value: 0},
+            {title: "Dima", value: 1},
+            {title: "Valera", value: 2},
+            {title: "Victor", value: 3},
+            {title: "Sveta", value: 4},
+            {title: "Dasha", value: 5}
+        ]} onChangeValue={(value)=>{setSelectValue(value)}} />
 };
+export const EmptySelect = () => {
+    return <Select value={"1"} items={
+        [ {title: "Minks", value: 1},
+        {title: "Moscow", value: 2},
+        {title: "Kiev", value: 3},]} onChangeValue={action("change select")} />
+};
+/*
 
 export const OpenAccordion = () => {
     return <ControlledAccordion titleValue={"OpenAccordion"} collapsed={false} changeCollapsed={onChangeHandler} items={
@@ -54,4 +68,5 @@ export const AccordionDemo = () => {
                                 onClick={(id)=>alert(`people with ID ${id} good man
                                 `)}/>
 }
+*/
 
