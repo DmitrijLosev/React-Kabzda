@@ -8,6 +8,7 @@ type ItemType = {
 }
 type SelectPropsType = { value: any, onChangeValue: (value: any) => void, items: ItemType[] }
 export const Select: React.FC<SelectPropsType> = React.memo(props => {
+    console.log("render")
         const [isSelectedMode, setIsSelectedMode] = useState(false)
         const [hoverElementIndex, setHoverElementIndex] = useState(0)
 
