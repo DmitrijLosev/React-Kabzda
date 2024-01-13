@@ -83,12 +83,18 @@ export const TimeInTitleExample = () => {
 
     useEffect(() => {
         console.log("useEffect ")
-        setInterval(()=>{
-            const hours=new Date().getHours().toString().length===1 ? "0" + new Date().getHours().toString() :new Date().getHours().toString()
-            const minutes =new Date().getMinutes().toString().length===1 ? "0" + new Date().getHours().toString() : new Date().getMinutes().toString()
-            const seconds =new Date().getSeconds().toString().length===1 ? "0" + new Date().getSeconds().toString() : new Date().getSeconds().toString()
-                setTime([hours,minutes,seconds])
-        },1000)
+        setInterval(() => {
+            function getSome(timeSet: number) {
+                return timeSet.toString().length === 1 ? "0" + timeSet.toString() : timeSet.toString()
+            }
+
+            setTime([
+                    getSome(new Date().getHours()),
+                    getSome(new Date().getMinutes()),
+                    getSome(new Date().getSeconds())
+                ]
+            )
+        }, 1000)
 
     },[])
     useEffect(() => {

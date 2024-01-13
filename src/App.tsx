@@ -7,6 +7,7 @@ import {ControlledRating, RatingValueType} from "./Components/Rating/ControlledR
 import {ControlledAccordion} from "./Components/Accordion/ControllledAccordion";
 import {ControlledOnOff} from "./Components/OnOff/ControlledOnOff";
 import {Select} from "./Components/Select/Select";
+import {Clock} from "./Components/Clock/Clock";
 
 const App = React.memo(props => {
 
@@ -35,6 +36,8 @@ const App = React.memo(props => {
                         {title: "Sveta", value: 4},
                         {title: "Dasha", value: 5}
                     ]}/>
+                <Clock viewMode={"numbers"}/>
+                <Clock viewMode={"clock"}/>
             </div>
         );
     }
