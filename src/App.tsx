@@ -36,8 +36,8 @@ const App = React.memo(props => {
                         {title: "Sveta", value: 4},
                         {title: "Dasha", value: 5}
                     ]}/>
-                <Clock viewMode={"numbers"}/>
-                <Clock viewMode={"clock"}/>
+                <Clock viewMode={"digital"}/>
+                <Clock viewMode={"analog"}/>
             </div>
         );
     }

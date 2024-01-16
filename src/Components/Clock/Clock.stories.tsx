@@ -6,8 +6,8 @@ export  default {
 }
 
 export const ClockNumberSelfMade = () => {
-    return <Clock viewMode={"numbers"}/>
+    return <Clock viewMode={"digital"}/>
 }
 export const ClockSelfMade = () => {
-    return <Clock viewMode={"clock"}/>
+    return <Clock viewMode={"analog"}/>
 }
